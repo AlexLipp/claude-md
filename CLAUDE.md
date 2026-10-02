@@ -94,32 +94,6 @@ it silently.
 - New modules should have meaningful test coverage (~60%+ as a
   floor, not a target).
 
-## Pre-commit
-- Use the `pre-commit` framework (not hand-rolled git hooks) for
-  repo-level checks. If a project has none, set up the standard
-  config below (per the top-level rule, ask first).
-- Standard config to use when confirmed:
-  ```yaml
-  repos:
-    - repo: https://github.com/astral-sh/ruff-pre-commit
-      rev: v0.16.0
-      hooks:
-        - id: ruff
-          args: [--fix]
-        - id: ruff-format
-    - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v5.0.0
-      hooks:
-        - id: trailing-whitespace
-        - id: end-of-file-fixer
-        - id: check-added-large-files
-  ```
-- After creating the config, run `pre-commit install` so it's active
-  immediately, and mention that collaborators cloning the repo need
-  to run it once too.
-- Keep pre-commit hooks fast (lint/format only) — the full test
-  suite belongs in CI, not in a hook that runs on every commit.
-
 ## Repository structure and hygiene
 - Every repo has a README covering: brief purpose (what this does
   and why), how to install dependencies, how to set up the
