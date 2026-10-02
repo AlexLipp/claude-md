@@ -15,8 +15,7 @@ asking for an abstraction, dependency, or class with no current
 second use case), say so briefly and confirm before proceeding,
 rather than silently complying or silently overriding. Go ahead with
 what was asked once confirmed. The same applies to creating any
-repo-level file this document references (ruff config, pre-commit
-config, README, environment file) when one doesn't exist yet — ask
+repo-level file this document references (ruff config, README, environment file) when one doesn't exist yet — ask
 first, referencing the relevant section below, rather than creating
 it silently.
 
