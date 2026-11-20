@@ -13,7 +13,7 @@ The standards are adapted from:
 - Defensive programming, type hints, docstrings
 - Testing conventions (write tests alongside code, run the full suite before finishing)
 - Repository hygiene: README requirements, environment files, `inputs/`/`outputs/`/`plots/` folder layout, `.gitignore` for data, secrets handling
-- Scientific-code priorities: minimal dependencies, reusable functions, reproducibility, seed handling, config files over hardcoded parameters
+- Scientific-code priorities: minimal dependencies, progress bars and "this may take a while" messages for slow steps, reusable functions, reproducibility, seed handling, config files over hardcoded parameters
 - Notebook conventions (`nbstripout`, logic lives in `.py` modules)
 - An equivalent R section (`styler`/`lintr`, `testthat`, `roxygen2`, `renv`)
 
@@ -28,6 +28,25 @@ cp CLAUDE.md ~/.claude/CLAUDE.md
 ```
 
 If you only want it to apply to one repository, put a copy at `<repo>/CLAUDE.md` instead — project-level and user-level files are both loaded and concatenated, so you can keep this as your global baseline and add repo-specific notes (e.g. a particular model architecture or dataset quirk) in a project-level file alongside it.
+
+### Optional: keep it linked to this repo
+
+Copying the file means your copy and this repo drift apart. To keep them in step, clone the repo once and make `~/.claude/CLAUDE.md` a symbolic link to the clone's file (macOS/Linux):
+
+```bash
+git clone https://github.com/AlexLipp/claude-md.git ~/claude-md       # or your fork
+mv ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.backup 2>/dev/null         # keep any existing file
+ln -s ~/claude-md/CLAUDE.md ~/.claude/CLAUDE.md
+ls -l ~/.claude/CLAUDE.md   # should show: CLAUDE.md -> .../claude-md/CLAUDE.md
+```
+
+Claude Code reads the linked file exactly as before. Then:
+
+- **Get updates:** `cd ~/claude-md && git pull`.
+- **Make changes:** edit `~/.claude/CLAUDE.md` (or the clone's file — it's the same file), then commit and push from `~/claude-md`. To keep your own changes, fork the repo first and clone your fork.
+- **Another machine:** repeat the three commands above.
+
+Version only this file, not the whole `~/.claude/` folder: that also holds login tokens, conversation transcripts and local settings, which shouldn't go into git.
 
 ## Verify it's loaded
 

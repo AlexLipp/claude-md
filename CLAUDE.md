@@ -120,6 +120,15 @@ it silently.
 - Prefer the standard library, numpy, pandas, and scipy over niche
   packages. Only add a new dependency when it saves substantial,
   non-trivial code — state the reason when you do.
+- Wrap any loop that can take more than ~10 seconds (long enough for
+  someone to notice) in a `tqdm` progress bar, so a slow run is
+  visibly progressing rather than looking hung. `tqdm` is an accepted
+  dependency for this; quick loops don't need it.
+- In the same spirit, before any other step that may take a while
+  without printing anything (a large download, file read, model fit,
+  or single slow call that `tqdm` can't track), print a short message
+  saying what it is doing and that it may take some time, e.g.
+  `print("Downloading spill history (~13 MB), may take a minute...")`.
 - Write functions to be reusable outside the specific script that
   first needed them: no hardcoded file paths or magic numbers inside
   function bodies — pass them as arguments with sensible defaults.
