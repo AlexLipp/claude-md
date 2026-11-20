@@ -8,13 +8,14 @@ The standards are adapted from:
 
 ## What's in it
 
-- Style and linting (ruff for Python, with a standard rule set)
+- Style and linting (ruff for Python, with a standard rule set; lint codes always named in plain language)
 - Function size, avoiding premature abstraction, no dead code
 - Defensive programming, type hints, docstrings
 - Testing conventions (write tests alongside code, run the full suite before finishing)
 - Repository hygiene: README requirements, environment files, `inputs/`/`outputs/`/`plots/` folder layout, `.gitignore` for data, secrets handling
 - Scientific-code priorities: minimal dependencies, progress bars and "this may take a while" messages for slow steps, reusable functions, reproducibility, seed handling, config files over hardcoded parameters
-- Notebook conventions (`nbstripout`, logic lives in `.py` modules)
+- Figures: data not conclusions, lettered panels, colourblind-safe ColorBrewer and perceptually uniform colour maps, log axes spanning at least a decade
+- Notebook conventions (`nbstripout`, logic lives in `.py` modules, `working.ipynb` treated as a personal scratch pad)
 - An equivalent R section (`styler`/`lintr`, `testthat`, `roxygen2`, `renv`)
 
 Where a rule involves creating a new file (a ruff config, a README, an environment file), Claude is instructed to ask before adding it rather than doing so silently.

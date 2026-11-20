@@ -28,6 +28,17 @@ it silently.
   before considering the task done.
 - Do not silence a rule with `# noqa` without a one-line comment
   explaining why.
+- Never quote a lint rule code to me on its own. Every time a ruff
+  code (or any linter/type-checker code) appears in what you write —
+  prose, a summary, a table, a commit message, a `# noqa` comment —
+  put a plain-language name straight after it, a few words at most:
+  `T201 (print statement)`, `PLR0913 (too many arguments)`,
+  `D100 (missing module docstring)`, `C901 (function too complex)`.
+  I should be able to tell what the problem is, and judge whether it
+  is worth fixing, without going to look the code up. Do this on
+  first mention in a given piece of writing; after that the bare code
+  is fine. If several codes describe one underlying issue, group them
+  and name it once rather than listing each separately.
 - Standard rule set to add if missing:
   ```toml
   [tool.ruff]
@@ -157,6 +168,36 @@ it silently.
   (YAML/JSON) rather than hardcoded — so re-running with different
   settings doesn't require editing code.
 
+## Figures
+These apply to deliverable figures — anything going into a paper, report,
+or presentation. Quick exploratory plots made mid-conversation are exempt;
+annotate those however helps the discussion.
+- Figures display data, not conclusions. No descriptive titles, captions,
+  or annotation that leads the eye to an interpretation. Axis labels,
+  units, and a legend where identity would otherwise be ambiguous — and
+  nothing more. State the finding in the text and let the figure show it.
+  If a figure needs a sentence written on it to be understood, the figure
+  is not doing its job.
+- Label every panel of a multi-panel figure with a small lower-case
+  letter in its upper-left corner: `a`, `b`, `c`, running left to right
+  along a row, then continuing on the row below.
+- Categorical colour: use a ColorBrewer colourblind-safe qualitative
+  palette (Set2, Dark2, or Paired where more than eight categories are
+  genuinely unavoidable). Assign hues in a fixed order and keep a
+  category's colour stable across every panel and every figure in a
+  piece of work.
+- Continuous colour: use a perceptually uniform, colourblind-safe map —
+  cividis, magma, rocket, mako, or a single-hue ColorBrewer sequential
+  ramp. Diverging data takes a diverging map centred on the meaningful
+  zero.
+- Don't reach for viridis by default. It is fine but overused; pick the
+  map that suits the variable, and vary it between figures.
+- A logarithmic axis should span at least one order of magnitude. Expand
+  the limits to reach a full decade if the data fall short — a log axis
+  over a fraction of a decade stretches a narrow range across the panel
+  and reads as far more variation than is there. If the data genuinely
+  span much less than a decade, use a linear axis instead.
+
 ## Notebooks
 - Strip output before committing (`nbstripout`, set up once per repo
   via `nbstripout --install`) so diffs stay readable and outputs
@@ -165,6 +206,17 @@ it silently.
   rather than writing functions only inside notebook cells — a
   notebook should read like a short script that calls into tested
   code, not contain the logic itself.
+- A notebook named `working.ipynb` at the root of a repo is my
+  personal scratch pad: exploratory, half-finished, and deliberately
+  not reproducible. This is informational, so it's clear what the
+  file is for — treat it as a draft, not as project code. Don't
+  review it for style, don't lint or refactor it, don't treat its
+  contents as the current state of the project, and don't include it
+  in commits or PRs unless I ask. Work that matters gets promoted out
+  of it into proper `.py` modules (per the rule above); when the two
+  disagree, the `.py` files are authoritative and `working.ipynb`
+  has probably just gone stale. Worth telling me when you notice it
+  has drifted, rather than fixing it yourself.
 
 ## R
 Most of the above applies regardless of language. R-specific tooling:
