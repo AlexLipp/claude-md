@@ -178,6 +178,18 @@ annotate those however helps the discussion.
   nothing more. State the finding in the text and let the figure show it.
   If a figure needs a sentence written on it to be understood, the figure
   is not doing its job.
+- Size figures for the page they will be printed on, unless told
+  otherwise or the figure is deliberately interactive. Set the figure
+  size explicitly to either half or full A4 text width (A4 is
+  210 × 297 mm; with ~25 mm margins that is about 80 mm / 3.15 in or
+  160 mm / 6.3 in wide). Never make a figure larger than the text area
+  of an A4 page (about 160 × 240 mm / 6.3 × 9.4 in). Choose the size
+  first and lay out the figure to fit it, rather than drawing large and
+  shrinking later.
+- Write every axis label as quantity, then " / ", then units, with
+  units written using exponents rather than slashes:
+  `Velocity / m s$^{-1}$`, `Discharge / m$^{3}$ s$^{-1}$`, not
+  "m/s" or "Velocity (m/s)".
 - Label every panel of a multi-panel figure with a small lower-case
   letter in its upper-left corner: `a`, `b`, `c`, running left to right
   along a row, then continuing on the row below.
@@ -187,11 +199,11 @@ annotate those however helps the discussion.
   category's colour stable across every panel and every figure in a
   piece of work.
 - Continuous colour: use a perceptually uniform, colourblind-safe map —
-  cividis, magma, rocket, mako, or a single-hue ColorBrewer sequential
-  ramp. Diverging data takes a diverging map centred on the meaningful
-  zero.
-- Don't reach for viridis by default. It is fine but overused; pick the
-  map that suits the variable, and vary it between figures.
+  viridis, cividis, magma, rocket, mako, or a single-hue ColorBrewer
+  sequential ramp. Diverging data takes a diverging map centred on the
+  meaningful zero. Cyclical data (directions, angles, phase, time of
+  day or year) takes a cyclic map whose ends meet, such as `twilight`,
+  so the colour doesn't jump between 359° and 0°.
 - A logarithmic axis should span at least one order of magnitude. Expand
   the limits to reach a full decade if the data fall short — a log axis
   over a fraction of a decade stretches a narrow range across the panel
