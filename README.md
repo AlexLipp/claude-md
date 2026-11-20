@@ -57,11 +57,11 @@ Run `/memory` inside a Claude Code session — it lists every context file that 
 
 A few things that pair well with this file but live in Claude Code's settings rather than in `CLAUDE.md` itself:
 
-- **Output style — "Explanatory"**: makes Claude add short "Insight" notes explaining *why* it made a choice, not just what it did. Good for seeing the reasoning behind a change without having to ask for it separately. Set it per-session with `/output-style`, or make it your default everywhere by adding to `~/.claude/settings.json`:
+- **Output style — "Learning" (recommended)**: the best setting if you want to get better at coding while you use Claude, rather than just collecting code. Claude explains its choices as it goes and, at sensible points, leaves small `TODO(human)` markers for you to write yourself instead of doing the whole task end to end. You practise the parts worth learning, and Claude handles the rest. It is slower when you just need working code quickly, so switch styles for those tasks. Try it for one session with `/output-style`, or make it your default everywhere by adding to `~/.claude/settings.json`:
   ```json
-  { "outputStyle": "Explanatory" }
+  { "outputStyle": "Learning" }
   ```
-- **Output style — "Learning"**: a more hands-on teaching mode — Claude pauses at points in the task and leaves small `TODO(human)` markers for you to fill in yourself, rather than writing the whole thing end to end. Better than Explanatory when the goal is for a student to actually practice writing code, not just read explanations of code Claude wrote; weaker when you just need working code quickly. Also set via `/output-style`.
+- **Output style — "Explanatory"**: a lighter alternative. Claude writes all the code itself but adds short "Insight" notes explaining *why* it made each choice. Useful when you want to understand the reasoning without stopping to write code yourself. Also set via `/output-style`, or `"outputStyle": "Explanatory"` in settings.
 - **Plan mode**: for anything non-trivial, running Claude in plan mode (`shift+tab` to cycle modes, or `defaultMode: "plan"` in settings) makes it propose an approach before writing code, which is a good habit for checking it understood the task before it starts.
 
 ## Further reading
