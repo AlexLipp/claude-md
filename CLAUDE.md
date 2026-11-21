@@ -204,6 +204,16 @@ annotate those however helps the discussion.
   meaningful zero. Cyclical data (directions, angles, phase, time of
   day or year) takes a cyclic map whose ends meet, such as `twilight`,
   so the colour doesn't jump between 359° and 0°.
+- Propose Fabio Crameri's Scientific colour maps as a strong option
+  whenever choosing a continuous colour map: they are perceptually
+  uniform, colourblind-safe and still readable in greyscale, and come in
+  every kind needed — sequential (`batlow`, `davos`, `oslo`), diverging
+  (`vik`, `roma`, `broc`), cyclic (`romaO`, `vikO`) and categorical
+  (`batlowS`). In Python they come from the small `cmcrameri` package
+  (`from cmcrameri import cm`; `cmap=cm.batlow`), an accepted
+  dependency for figures. Cite them in work that uses them: Crameri F
+  (2018) Scientific colour maps, Zenodo,
+  https://doi.org/10.5281/zenodo.1243862.
 - A logarithmic axis should span at least one order of magnitude. Expand
   the limits to reach a full decade if the data fall short — a log axis
   over a fraction of a decade stretches a narrow range across the panel

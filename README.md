@@ -14,7 +14,11 @@ The standards are adapted from:
 - Testing conventions (write tests alongside code, run the full suite before finishing)
 - Repository hygiene: README requirements, environment files, `inputs/`/`outputs/`/`plots/` folder layout, `.gitignore` for data, secrets handling
 - Scientific-code priorities: minimal dependencies, progress bars and "this may take a while" messages for slow steps, reusable functions, reproducibility, seed handling, config files over hardcoded parameters
-- Figures: data not conclusions, sized for half or full A4 width, `quantity / unit` axis labels with exponents (m s$^{-1}$), lettered panels, colourblind-safe ColorBrewer, perceptually uniform and cyclic colour maps, log axes spanning at least a decade
+- Figures: data not conclusions, sized for half or full A4 width, `quantity / unit` axis labels with exponents (m s$^{-1}$), lettered panels, colourblind-safe ColorBrewer, perceptually uniform and cyclic colour maps (with Fabio Crameri's Scientific colour maps proposed as a strong option), log axes spanning at least a decade. The colour-map guidance draws on:
+
+  > Crameri F (2018) Scientific colour maps. Zenodo. https://doi.org/10.5281/zenodo.1243862
+  >
+  > Crameri F, Shephard GE, Heron PJ (2020) "The misuse of colour in science communication." *Nat Commun* 11: 5444. https://doi.org/10.1038/s41467-020-19160-7
 - Notebook conventions (`nbstripout`, logic lives in `.py` modules, `working.ipynb` treated as a personal scratch pad)
 - An equivalent R section (`styler`/`lintr`, `testthat`, `roxygen2`, `renv`)
 
